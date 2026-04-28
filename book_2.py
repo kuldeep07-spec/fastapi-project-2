@@ -3,14 +3,28 @@ from typing import Optional,List
 
 app=FastAPI()
 
+class Book:
+    id:int
+    title:str
+    author:str
+    description:str
+    rating:int
+
+    def __init__(self,id,title,author,description,rating):
+        self.id=id
+        self.title=title
+        self.author=author
+        self.description=description
+        self.rating=rating
+
+
 
 BOOKS = [
-    {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
-    {'title': 'Title Two', 'author': 'Author Two', 'category': 'science'},
-    {'title': 'Title Three', 'author': 'Author Three', 'category': 'history'},
-    {'title': 'Title Four', 'author': 'Author Four', 'category': 'math'},
-    {'title': 'Title Five', 'author': 'Author Five', 'category': 'math'},
-    {'title': 'Title Six', 'author': 'Author Two', 'category': 'math'}
+    Book(1, "Atomic Habits", "James Clear", "Build good habits and break bad ones", 5),
+    Book(2, "Deep Work", "Cal Newport", "Focus deeply in a distracted world", 5),
+    Book(3, "Clean Code", "Robert C. Martin", "Guide to writing clean and maintainable code", 5),
+    Book(4, "The Alchemist", "Paulo Coelho", "A journey of self-discovery", 4),
+    Book(5, "Think and Grow Rich", "Napoleon Hill", "Principles for personal success", 4)
 ]
 
 @app.get("/books")
